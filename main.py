@@ -50,7 +50,6 @@ async def start_handler(bot: Client, m: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Developer - @MasterMind007", url="https://t.me/MasterMidn007")],
                 [InlineKeyboardButton("Open Settings", callback_data="openSettings")],
                 [InlineKeyboardButton("Close", callback_data="closeMeh")]
             ]
@@ -242,7 +241,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 await delete_all(root=f"{Config.DOWN_PATH}/{cb.from_user.id}/")
                 QueueDB.update({cb.from_user.id: []})
                 FormtDB.update({cb.from_user.id: None})
-                await cb.message.edit("Video Corrupted!\nTry Again Later.")
+                await cb.message.edit("Video Corrupted -_- !\nTry Again Later.")
                 return
         __cache = list()
         for i in range(len(vid_list)):
